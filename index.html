@@ -16,11 +16,25 @@
         header {
             background: #333;
             color: #fff;
-            padding: 1rem 0;
+            padding: 2rem 0;
             text-align: center;
         }
         header h1 {
             margin: 0;
+            font-size: 2rem;
+        }
+        header p {
+            margin: 0.5rem 0;
+        }
+        .profile-photo {
+            display: block;
+            margin: 1rem auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         section {
             max-width: 800px;
@@ -31,13 +45,6 @@
             color: #333;
             border-bottom: 2px solid #333;
             padding-bottom: 5px;
-        }
-        .profile-photo {
-            display: block;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            max-width: 150px;
-            border: 2px solid #333;
         }
         footer {
             text-align: center;
@@ -64,10 +71,10 @@
 </head>
 <body>
     <header>
+        <img src="my-photo.jpg" alt="Junwoo Jung's photo" class="profile-photo">
         <h1>Junwoo Jung</h1>
         <p>B.S. in Physics | KAIST</p>
         <p>Email: <a href="mailto:gguby@kaist.ac.kr">gguby@kaist.ac.kr</a> | Phone: (+82) 010-9798-0908</p>
-        <img src="my-photo.jpg" alt="Junwoo Jung's photo" class="profile-photo">
     </header>
 
     <section>
