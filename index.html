@@ -52,6 +52,15 @@
             border-bottom: 2px solid #333;
             padding-bottom: 5px;
         }
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .date {
+            text-align: right;
+            color: #555;
+            font-weight: bold;
+        }
         footer {
             text-align: center;
             background: #333;
@@ -59,14 +68,16 @@
             padding: 1rem 0;
             margin-top: 20px;
         }
+        .email-link {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="my-photo.jpg" alt="Junwoo Jung's photo" class="profile-photo">
         <h1>Junwoo Jung</h1>
-        <p>B.S. in Physics | KAIST</p>
-        <p>Email: <a href="mailto:gguby@kaist.ac.kr">gguby@kaist.ac.kr</a> | Phone: (+82) 010-9798-0908</p>
+        <p>Email: <a href="mailto:gguby@kaist.ac.kr" class="email-link">gguby@kaist.ac.kr</a> | Phone: (+82) 010-9798-0908</p>
     </header>
     
     <nav>
@@ -76,10 +87,23 @@
     </nav>
     
     <section>
-        <h2>Welcome</h2>
-        <p>Welcome to my resume page. Navigate to the <a href="experience.html">Experience</a>, <a href="research.html">Research Interest</a>, or <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener noreferrer">Google Scholar</a> sections for more details.</p>
+        <h2>Education</h2>
+        <ul>
+            <li class="education-item">
+                <span><strong>Korea Science Academy of KAIST</strong></span>
+                <span class="date"><strong>2020 – 2022</strong></span>
+            </li>
+            <li class="education-item">
+                <span><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> – B.S. in Physics</span>
+                <span class="date"><strong>2023 – Present</strong></span>
+            </li>
+            <li class="education-item">
+                <span><strong>Nanyang Technological University</strong> – Exchange Program</span>
+                <span class="date"><strong>2024 Fall</strong></span>
+            </li>
+        </ul>
     </section>
-
+    
     <footer>
         <p>&copy; 2024 Junwoo Jung. Built with 💻 and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</p>
     </footer>
