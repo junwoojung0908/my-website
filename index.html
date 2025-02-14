@@ -5,184 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junwoo Jung | Resume</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.8;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
             color: #333;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
-            animation: fadeIn 1s ease-in-out;
-        }
-        .dark-mode {
-            background-color: #121212;
-            color: white;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            text-align: center;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
         nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            color: #0066cc;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ff6600;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         .icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-left: 5px;
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
         }
         .education-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
             margin-top: 40px;
+            width: 90%;
+            max-width: 800px;
         }
         .education-item {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 80%;
-            max-width: 800px;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .education-item img {
-            width: 120px;
+            width: 80px;
             height: auto;
-            margin-right: 20px;
         }
         .education-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
             flex-grow: 1;
+            margin-left: 15px;
+            text-align: left;
         }
         .education-text strong {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            display: block;
+            font-size: 1.1em;
         }
         .education-date {
-            text-align: right;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-        section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            font-weight: 600;
         }
         footer {
-            text-align: center;
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            margin-top: auto;
-        }
-        .email-link {
-            color: #fff;
-        }
-        @media (max-width: 768px) {
-            .education-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .education-text {
-                text-align: center;
-                align-items: center;
-            }
-            .education-date {
-                text-align: center;
-            }
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
 </head>
 <body>
     <header>
         <img src="my-photo.jpg" alt="Junwoo Jung's photo" class="profile-photo">
         <h1>Junwoo Jung</h1>
-        <p>Email: <a href="mailto:gguby@kaist.ac.kr" class="email-link">gguby@kaist.ac.kr</a> | Phone: (+82) 010-9798-0908</p>
-        <button onclick="navigator.clipboard.writeText('gguby@kaist.ac.kr')">Copy Email</button>
-        <button onclick="toggleDarkMode()">Dark Mode</button>
+        <p>Email: <a href="mailto:gguby@kaist.ac.kr">gguby@kaist.ac.kr</a></p>
+        <nav>
+            <a href="experience.html">Experience</a>
+            <a href="research.html">Research Interest</a>
+            <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" class="icon">
+            </a>
+            <a href="https://www.linkedin.com/in/junwoo-jung-1a6363218" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" class="icon">
+            </a>
+        </nav>
     </header>
-    
-    <nav>
-        <a href="experience.html">Experience</a>
-        <a href="research.html">Research Interest</a>
-        <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" class="icon">
-        </a>
-        <a href="https://www.linkedin.com/in/junwoo-jung-1a6363218" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" class="icon">
-        </a>
-    </nav>
-    
-    <section>
+    <section class="education-container">
         <h2>Education</h2>
-        <div class="education-container">
-            <div class="education-item">
-                <img src="kaist-logo.png" alt="KAIST">
-                <div class="education-text">
-                    <strong>Korea Advanced Institute of Science and Technology (KAIST)</strong>
-                    B.S. in Physics
-                </div>
-                <div class="education-date">2023 – Present</div>
-            </div>
-            <div class="education-item">
-                <img src="NTU-logo.png" alt="NTU">
-                <div class="education-text">
-                    <strong>Nanyang Technological University</strong>
-                    Exchange Program
-                </div>
-                <div class="education-date">2024 Fall</div>
-            </div>
-            <div class="education-item">
-                <img src="KSA-logo.webp" alt="KSA">
-                <div class="education-text">
-                    <strong>Korea Science Academy of KAIST</strong>
-                    High School
-                </div>
-                <div class="education-date">2020 – 2022</div>
-            </div>
+        <div class="education-item">
+            <img src="kaist-logo.png" alt="KAIST">
+            <div class="education-text"><strong>KAIST</strong>B.S. in Physics</div>
+            <div class="education-date">2023 – Present</div>
+        </div>
+        <div class="education-item">
+            <img src="NTU-logo.png" alt="NTU">
+            <div class="education-text"><strong>NTU</strong>Exchange Program</div>
+            <div class="education-date">2024 Fall</div>
+        </div>
+        <div class="education-item">
+            <img src="KSA-logo.webp" alt="KSA">
+            <div class="education-text"><strong>KSA of KAIST</strong>High School</div>
+            <div class="education-date">2020 – 2022</div>
         </div>
     </section>
-    
     <footer>
-        <p>&copy; 2025 Junwoo Jung. Built with 💻 and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. 
-        <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" class="icon">
-        </a>
-        <a href="https://www.linkedin.com/in/junwoo-jung-1a6363218" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" class="icon">
-        </a>
-        </p>
+        <p>&copy; 2025 Junwoo Jung | Built with 💻 | Hosted on <a href="https://github.com" target="_blank">GitHub Pages</a></p>
     </footer>
 </body>
 </html>
