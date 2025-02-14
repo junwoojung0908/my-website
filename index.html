@@ -48,26 +48,31 @@
             vertical-align: middle;
             margin-left: 5px;
         }
-        .institution-logo {
-            width: 100px;
-            height: auto;
-            margin-right: 10px;
-        }
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            flex: 1;
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
         .education-item {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 800px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .education-item img {
+            width: 60px;
+            height: auto;
+            margin-right: 15px;
+        }
+        .education-text {
+            flex: 1;
+            display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .date {
-            text-align: right;
-            color: #555;
-            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -82,7 +87,12 @@
         @media (max-width: 768px) {
             .education-item {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
+            }
+            .education-text {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
             }
         }
     </style>
@@ -109,23 +119,29 @@
     
     <section>
         <h2>Education</h2>
-        <ul>
-            <li class="education-item">
-                <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
-                <span><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> – B.S. in Physics</span>
-                <span class="date"><strong>2023 – Present</strong></span>
-            </li>
-            <li class="education-item">
-                <img src="NTU-logo.png" alt="NTU" class="institution-logo">
-                <span><strong>Nanyang Technological University</strong> – Exchange Program</span>
-                <span class="date"><strong>2024 Fall</strong></span>
-            </li>
-            <li class="education-item">
-                <img src="KSA-logo.webp" alt="KSA of KAIST" class="institution-logo">
-                <span><strong>Korea Science Academy of KAIST</strong></span>
-                <span class="date"><strong>2020 – 2022</strong></span>
-            </li>
-        </ul>
+        <div class="education-container">
+            <div class="education-item">
+                <img src="kaist-logo.png" alt="KAIST">
+                <div class="education-text">
+                    <span><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> – B.S. in Physics</span>
+                    <span><strong>2023 – Present</strong></span>
+                </div>
+            </div>
+            <div class="education-item">
+                <img src="NTU-logo.png" alt="NTU">
+                <div class="education-text">
+                    <span><strong>Nanyang Technological University</strong> – Exchange Program</span>
+                    <span><strong>2024 Fall</strong></span>
+                </div>
+            </div>
+            <div class="education-item">
+                <img src="KSA-logo.webp" alt="KSA">
+                <div class="education-text">
+                    <span><strong>Korea Science Academy of KAIST</strong></span>
+                    <span><strong>2020 – 2022</strong></span>
+                </div>
+            </div>
+        </div>
     </section>
     
     <footer>
