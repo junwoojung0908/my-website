@@ -5,62 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience | Junwoo Jung</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
             color: #333;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            text-align: center;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
         }
         nav {
-            text-align: center;
-            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            color: #0066cc;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            flex: 1;
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
         }
         .experience-section {
-            margin-bottom: 40px;
+            width: 90%;
+            max-width: 800px;
+            background: #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
         .experience-item {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
         }
-        .experience-item strong {
-            font-weight: bold;
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        .experience-item span {
+            flex: 1;
+            text-align: left;
         }
         .date {
             text-align: right;
             color: #555;
+            flex: 0.3;
+            font-weight: bold;
         }
         footer {
-            text-align: center;
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            margin-top: auto;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #555;
         }
     </style>
 </head>
@@ -72,41 +87,43 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="research.html">Research Interest</a>
-        <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" class="icon">
+        </a>
     </nav>
     
     <section class="experience-section">
         <h2>Research Experience</h2>
         <ul>
             <li class="experience-item">
-                <span><strong>Undergraduate Intern</strong> <strong>@ KAIST</strong> (<strong>PI: GY Cho</strong>)</span>
+                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: GY Cho)</span>
                 <span class="date">Feb. 2025 – Present</span>
             </li>
             <p>Researching topics related to topological order and quantum information physics.</p>
             
             <li class="experience-item">
-                <span><strong>Undergraduate Intern</strong> <strong>@ NTU</strong> (<strong>PI: Nelly NG</strong>)</span>
+                <span><strong>NTU</strong><br>Undergraduate Intern (PI: Nelly NG)</span>
                 <span class="date">Aug. 2024 – Jan. 2025</span>
             </li>
             <p>Investigated the relationship between Gibbs-preserving covariant channels and thermal operations.</p>
             
             <li class="experience-item">
-                <span><strong>Undergraduate Intern</strong> <strong>@ KAIST</strong> (<strong>PI: HW Jung</strong>)</span>
+                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: HW Jung)</span>
                 <span class="date">Mar. 2024 – Jul. 2024</span>
             </li>
             <p>Developed a user-friendly GUI to visualize laboratory data, improving operational efficiency. Conducted simulations including the Zeeman Slower model.</p>
             
             <li class="experience-item">
-                <span><strong>Undergraduate Intern</strong> <strong>@ KAIST</strong> (<strong>PI: JY Choi</strong>)</span>
+                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JY Choi)</span>
                 <span class="date">Sep. 2023 – Feb. 2024</span>
             </li>
             <p>Conducted simulations for the Zeeman Slower model and contributed to visualizing experimental data.</p>
             
             <li class="experience-item">
-                <span><strong>Undergraduate Intern</strong> <strong>@ KAIST</strong> (<strong>PI: JW Ahn</strong>)</span>
+                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JW Ahn)</span>
                 <span class="date">Jun. 2023 – Sep. 2023</span>
             </li>
-            <p>Designed Rydberg atom graphs for solving QUBO problems.</p>
+            <p><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Designed Rydberg atom graphs for solving QUBO problems.</a></p>
         </ul>
     </section>
     
@@ -114,7 +131,7 @@
         <h2>Quantum Information Study Group</h2>
         <ul>
             <li class="experience-item">
-                <span><strong>Founder</strong> <strong>@ Quantum Information Study Group</strong></span>
+                <span><strong>Quantum Information Study Group</strong><br>Founder</span>
                 <span class="date">Apr. 2024 – Present</span>
             </li>
             <p>Organized a group with 15+ students from KAIST and SNU to study quantum information.</p>
@@ -122,7 +139,7 @@
     </section>
     
     <footer>
-        <p>&copy; 2024 Junwoo Jung. Built with 💻 and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. View my <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+        <p>&copy; 2025 Junwoo Jung. Built with 💻 and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</p>
     </footer>
 </body>
 </html>
