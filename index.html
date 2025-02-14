@@ -18,6 +18,10 @@
             min-height: 100vh;
             animation: fadeIn 1s ease-in-out;
         }
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -60,19 +64,28 @@
             justify-content: space-between;
             width: 80%;
             max-width: 800px;
-            padding: 10px;
+            padding: 20px;
             border-bottom: 1px solid #ddd;
         }
         .education-item img {
-            width: 60px;
+            width: 120px;
             height: auto;
-            margin-right: 15px;
+            margin-right: 20px;
         }
         .education-text {
-            flex: 1;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .education-text strong {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .education-date {
+            text-align: right;
+            font-weight: bold;
+            white-space: nowrap;
         }
         footer {
             text-align: center;
@@ -87,15 +100,23 @@
         @media (max-width: 768px) {
             .education-item {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
             }
             .education-text {
-                flex-direction: column;
+                text-align: center;
                 align-items: center;
-                gap: 5px;
+            }
+            .education-date {
+                text-align: center;
             }
         }
     </style>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -103,7 +124,7 @@
         <h1>Junwoo Jung</h1>
         <p>Email: <a href="mailto:gguby@kaist.ac.kr" class="email-link">gguby@kaist.ac.kr</a> | Phone: (+82) 010-9798-0908</p>
         <button onclick="navigator.clipboard.writeText('gguby@kaist.ac.kr')">Copy Email</button>
-        <button onclick="document.body.classList.toggle('dark-mode')">Dark Mode</button>
+        <button onclick="toggleDarkMode()">Dark Mode</button>
     </header>
     
     <nav>
@@ -123,23 +144,25 @@
             <div class="education-item">
                 <img src="kaist-logo.png" alt="KAIST">
                 <div class="education-text">
-                    <span><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> – B.S. in Physics</span>
-                    <span><strong>2023 – Present</strong></span>
+                    <strong>Korea Advanced Institute of Science and Technology (KAIST)</strong>
+                    B.S. in Physics
                 </div>
+                <div class="education-date">2023 – Present</div>
             </div>
             <div class="education-item">
                 <img src="NTU-logo.png" alt="NTU">
                 <div class="education-text">
-                    <span><strong>Nanyang Technological University</strong> – Exchange Program</span>
-                    <span><strong>2024 Fall</strong></span>
+                    <strong>Nanyang Technological University</strong>
+                    Exchange Program
                 </div>
+                <div class="education-date">2024 Fall</div>
             </div>
             <div class="education-item">
                 <img src="KSA-logo.webp" alt="KSA">
                 <div class="education-text">
-                    <span><strong>Korea Science Academy of KAIST</strong></span>
-                    <span><strong>2020 – 2022</strong></span>
+                    <strong>Korea Science Academy of KAIST</strong>
                 </div>
+                <div class="education-date">2020 – 2022</div>
             </div>
         </div>
     </section>
