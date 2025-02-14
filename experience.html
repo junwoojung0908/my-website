@@ -69,8 +69,19 @@
         .date {
             text-align: right;
             color: #555;
-            flex: 0.3;
+            flex: 1;
             font-weight: bold;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .institution-logo {
+            width: 80px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .experience-container {
+            display: flex;
+            align-items: center;
         }
         footer {
             margin-top: 40px;
@@ -96,28 +107,22 @@
         <h2>Research Experience</h2>
         <ul>
             <li class="experience-item">
-                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: GY Cho)</span>
+                <div class="experience-container">
+                    <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
+                    <span><strong>KAIST</strong><br>Undergraduate Intern (PI: GY Cho)</span>
+                </div>
                 <span class="date">Feb. 2025 – Present</span>
             </li>
             <p>Researching topics related to topological order and quantum information physics.</p>
             
             <li class="experience-item">
-                <span><strong>NTU</strong><br>Undergraduate Intern (PI: Nelly NG)</span>
+                <div class="experience-container">
+                    <img src="ntu-logo.png" alt="NTU" class="institution-logo">
+                    <span><strong>NTU</strong><br>Undergraduate Intern (PI: Nelly NG)</span>
+                </div>
                 <span class="date">Aug. 2024 – Jan. 2025</span>
             </li>
             <p>Investigated the relationship between Gibbs-preserving covariant channels and thermal operations.</p>
-            
-            <li class="experience-item">
-                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JY Choi)</span>
-                <span class="date">Sep. 2023 – Feb. 2024</span>
-            </li>
-            <p>Conducted simulations for the Zeeman Slower model and contributed to visualizing experimental data.</p>
-            
-            <li class="experience-item">
-                <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JW Ahn)</span>
-                <span class="date">Jun. 2023 – Sep. 2023</span>
-            </li>
-            <p><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Designed Rydberg atom graphs for solving QUBO problems.</a></p>
         </ul>
     </section>
     
@@ -125,16 +130,21 @@
         <h2>Exchange Program</h2>
         <ul>
             <li class="experience-item">
-                <span><strong>Technical University of Denmark</strong><br>Short-term Exchange Program</span>
+                <div class="experience-container">
+                    <img src="DTU-logo.png" alt="DTU" class="institution-logo">
+                    <span><strong>Technical University of Denmark</strong><br>Short-term Exchange Program</span>
+                </div>
                 <span class="date">2025 Summer</span>
             </li>
             <p>TBD</p>
-
             <li class="experience-item">
-                <span><strong>Nanyang Technological University </strong><br>Exchange Program</span>
+                <div class="experience-container">
+                    <img src="ntu-logo.png" alt="NTU" class="institution-logo">
+                    <span><strong>Nanyang Technological University</strong><br>Exchange Program</span>
+                </div>
                 <span class="date">2024 Autumn</span>
             </li>
-            <p>Research Internship & Acquired 9 credits </p>
+            <p>Research Internship & Acquired 9 credits</p>
         </ul>
     </section>
     
@@ -142,7 +152,10 @@
         <h2>Quantum Information Study Group</h2>
         <ul>
             <li class="experience-item">
-                <span><strong>Quantum Information Study Group</strong><br>Founder</span>
+                <div class="experience-container">
+                    <img src="qisg-logo.png" alt="Quantum Information Study Group" class="institution-logo">
+                    <span><strong>Quantum Information Study Group</strong><br>Founder</span>
+                </div>
                 <span class="date">Apr. 2024 – Present</span>
             </li>
             <p>Organized a group with 15+ students from KAIST and SNU to study quantum information.</p>
