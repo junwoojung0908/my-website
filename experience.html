@@ -12,6 +12,9 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             background: #333;
@@ -36,6 +39,10 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
+            flex: 1;
+        }
+        .experience-section {
+            margin-bottom: 40px;
         }
         .experience-item {
             display: flex;
@@ -53,7 +60,7 @@
             background: #333;
             color: #fff;
             padding: 1rem 0;
-            margin-top: 20px;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -65,9 +72,10 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="research.html">Research Interest</a>
+        <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener noreferrer">Google Scholar</a>
     </nav>
     
-    <section>
+    <section class="experience-section">
         <h2>Research Experience</h2>
         <ul>
             <li class="experience-item">
@@ -102,7 +110,7 @@
         </ul>
     </section>
     
-    <section>
+    <section class="experience-section">
         <h2>Quantum Information Study Group</h2>
         <ul>
             <li class="experience-item">
