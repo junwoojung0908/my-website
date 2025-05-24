@@ -1,199 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | Junwoo Jung</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        header {
-            background: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 800px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .icon {
-            width: 30px;
-            height: 30px;
-            margin-left: 10px;
-        }
-        .experience-section {
-            width: 90%;
-            max-width: 800px;
-            background: #ffffff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .experience-item {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-        .experience-item span {
-            flex: 1;
-            text-align: left;
-        }
-        .date {
-            text-align: right;
-            color: #555;
-            flex: 1;
-            font-weight: bold;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .institution-logo {
-            width: 80px;
-            height: auto;
-            margin-right: 10px;
-        }
-        .experience-container {
-            display: flex;
-            align-items: center;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Junwoo Jung</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    nav { margin-top: 15px; }
+    nav a { text-decoration: none; color: #0066cc; }
+
+    .section-box {
+      width: 90%;
+      max-width: 800px;
+      background: #fff;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    /* shared row layout */
+    .experience-item,
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .experience-item:last-child,
+    .education-item:last-child { border-bottom: none; }
+
+    .experience-container,
+    .education-container-inner {
+      display: flex;
+      align-items: center;
+      flex: 3;
+    }
+
+    .institution-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    .date {
+      flex: 1;
+      font-weight: bold;
+      text-align: right;
+      color: #555;
+    }
+
+    footer {
+      margin: 50px 0 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Experience</h1>
-    </header>
-    
+  <header>
+    <h1>Experience</h1>
     <nav>
-        <a href="index.html">Home</a>
+      <a href="index.html">Home</a>
     </nav>
+  </header>
 
-    <section class="education-container">
-        <h2>Education</h2>
-        <div class="education-item">
-            <img src="kaist-logo.png" alt="KAIST">
-            <div class="education-text"><strong>Korea Advanced Institute of Science and Technology </strong>B.S. in Physics</div>
-            <div class="education-date">2023 – Present</div>
+  <main>
+
+    <!-- Education ---------------------------------------------------------->
+    <section class="section-box">
+      <h2>Education</h2>
+      <div class="education-item">
+        <div class="education-container-inner">
+          <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
+          <span><strong>Korea Advanced Institute of Science and Technology</strong><br />B.S. in Physics</span>
         </div>
-        
-        <div class="education-item">
-            <img src="KSA-logo.webp" alt="KSA">
-            <div class="education-text"><strong>Korea Science Academy of KAIST</strong>KAIST affiliated High School</div>
-            <div class="education-date">2020 – 2022</div>
+        <span class="date">2023 – Present</span>
+      </div>
+
+      <div class="education-item">
+        <div class="education-container-inner">
+          <img src="KSA-logo.webp" alt="KSA" class="institution-logo" />
+          <span><strong>Korea Science Academy of KAIST</strong><br />KAIST-affiliated High School</span>
         </div>
+        <span class="date">2020 – 2022</span>
+      </div>
     </section>
 
-    
-    <section class="experience-section">
-        <h2>Research Experience</h2>
-        <ul>
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
-                    <span><strong>KAIST</strong><br>Undergraduate Intern (PI: GY Cho)</span>
-                </div>
-                <span class="date">Feb. 2025 – Present</span>
-            </li>
-            <p> Investigation of the error term of Chiral Central Charge due to the error of strict entanglemnt area law.</p>
-            
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="NTU-logo.png" alt="NTU" class="institution-logo">
-                    <span><strong>NTU</strong><br>Undergraduate Intern (PI: Nelly NG)</span>
-                </div>
-                <span class="date">Aug. 2024 – Jan. 2025</span>
-            </li>
-            <p>(Ongoing Project) Investigating the relationship between Gibbs-preserving covariant channels and thermal operations.</p>
-            
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="kaist-logo.png" alt="NTU" class="institution-logo">
-                    <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JY Choi)</span>
-                </div>
-                <span class="date">Sep. 2023 – Feb. 2024</span>
-            </li>
-            <p>Learned experimental techniques via optical devices.</p>
-            <p>Implmented python based GUI program for temperature control system.</p>
+    <!-- Research experience ------------------------------------------------>
+    <section class="section-box">
+      <h2>Research Experience</h2>
+      <ul>
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
+            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: G.Y. Cho)</span>
+          </div>
+          <span class="date">Feb 2025 – Present</span>
+          <p>Investigation of the error term of chiral central charge caused by deviations from a strict entanglement-area law.</p>
+        </li>
 
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="kaist-logo.png" alt="NTU" class="institution-logo">
-                    <span><strong>KAIST</strong><br>Undergraduate Intern (PI: JW Ahn)</span>
-                </div>
-                <span class="date">Jun. 2023 – Sep. 2023</span>
-            </li>
-            <p><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Developed a method of constructing a Rydberg-atom graph for solving QUBO problems.</a></p>
-        </ul>
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
+            <span><strong>Nanyang Technological University</strong><br />Undergraduate Intern (PI: N. Ng)</span>
+          </div>
+          <span class="date">Aug 2024 – Jan 2025</span>
+          <p>(Ongoing) Exploring the correspondence between Gibbs-preserving covariant channels and thermal operations.</p>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
+            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: J.Y. Choi)</span>
+          </div>
+          <span class="date">Sep 2023 – Feb 2024</span>
+          <p>Learned optical experimental techniques and built a Python-based GUI for a temperature-control system.</p>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
+            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: J.W. Ahn)</span>
+          </div>
+          <span class="date">Jun 2023 – Sep 2023</span>
+          <p><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Developed a Rydberg-atom-graph approach for solving QUBO problems.</a></p>
+        </li>
+      </ul>
     </section>
-    
-    <section class="experience-section">
-        <h2>Exchange Program</h2>
-        <ul>
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="DTU-logo.png" alt="DTU" class="institution-logo">
-                    <span><strong>Technical University of Denmark</strong><br>Short-term Exchange Program</span>
-                </div>
-                <span class="date">2025 Summer</span>
-            </li>
-            <p>Earned three credits</p>
-            <li class="experience-item">
-                <div class="experience-container">
-                    <img src="NTU-logo.png" alt="NTU" class="institution-logo">
-                    <span><strong>Nanyang Technological University</strong><br>Exchange Program</span>
-                </div>
-                <span class="date">2024 Autumn</span>
-            </li>
-            <p>Research Internship & Acquired 9 credits</p>
-        </ul>
+
+    <!-- Exchange programmes ----------------------------------------------->
+    <section class="section-box">
+      <h2>Exchange Programmes</h2>
+      <ul>
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="DTU-logo.png" alt="DTU" class="institution-logo" />
+            <span><strong>Technical University of Denmark</strong><br />Short-term Exchange</span>
+          </div>
+          <span class="date">Summer 2025</span>
+          <p>Earned three credits.</p>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-container">
+            <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
+            <span><strong>Nanyang Technological University</strong><br />Exchange Programme</span>
+          </div>
+          <span class="date">Autumn 2024</span>
+          <p>Research internship &amp; completed 9 credits.</p>
+        </li>
+      </ul>
     </section>
-    
-    <section class="experience-section">
-        <h2>Quantum Information Study Group</h2>
-        <ul>
-            <li class="experience-item">
-                <div class="experience-container">
-                    <span><strong>Quantum Information Study Group</strong><br>Founder</span>
-                </div>
-                <span class="date">Apr. 2024 – Present</span>
-            </li>
-            <p>Organized a group with 15+ students from KAIST and SNU to study quantum information.</p>
-        </ul>
+
+    <!-- Study group -------------------------------------------------------->
+    <section class="section-box">
+      <h2>Quantum Information Study Group</h2>
+      <ul>
+        <li class="experience-item">
+          <div class="experience-container">
+            <span><strong>Quantum Information Study Group</strong><br />Founder</span>
+          </div>
+          <span class="date">Apr 2024 – Present</span>
+          <p>Organised a 15-member joint KAIST/SNU group to discuss quantum-information topics weekly.</p>
+        </li>
+      </ul>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 Junwoo Jung. Built with 💻 and hosted on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</p>
-    </footer>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Junwoo Jung. Built with 💻 and hosted on
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+  </footer>
 </body>
 </html>
