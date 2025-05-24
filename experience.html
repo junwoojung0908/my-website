@@ -12,77 +12,78 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background-color: #f5f7fa;
+      background: #f5f7fa;
       color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      text-align: center;
       padding: 40px 0;
+      text-align: center;
     }
 
+    /* ---------- header / nav ---------- */
     header {
       background: #fff;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 2rem;
       border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
       width: 90%;
       max-width: 800px;
     }
 
     nav { margin-top: 15px; }
-    nav a { text-decoration: none; color: #0066cc; }
+    nav a { color: #0066cc; text-decoration: none; }
 
+    /* ---------- generic section card ---------- */
     .section-box {
       width: 90%;
       max-width: 800px;
       background: #fff;
-      margin-top: 30px;
-      padding: 20px;
+      margin-top: 32px;
+      padding: 24px;
       border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
       text-align: left;
     }
 
-    /* shared row layout */
-    .experience-item,
-    .education-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      padding: 10px 0;
+    /* ---------- grid layout for every row ---------- */
+    .education-item,
+    .experience-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto; /* logo | text | date */
+      gap: 12px;
+      align-items: start;
+      padding: 16px 0;
       border-bottom: 1px solid #ddd;
     }
-    .experience-item:last-child,
-    .education-item:last-child { border-bottom: none; }
-
-    .experience-container,
-    .education-container-inner {
-      display: flex;
-      align-items: center;
-      flex: 3;
-    }
+    .education-item:last-child,
+    .experience-item:last-child { border-bottom: none; }
 
     .institution-logo {
       width: 80px;
       height: 80px;
       object-fit: contain;
-      margin-right: 10px;
     }
 
     .date {
-      flex: 1;
-      font-weight: bold;
-      text-align: right;
+      font-weight: 600;
       color: #555;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* description lines line up under text + date */
+    .description {
+      grid-column: 2 / -1;     /* spans columns 2-3 */
+      margin-top: 4px;
     }
 
     footer {
       margin: 50px 0 10px;
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: #555;
+      text-align: center;
     }
   </style>
 </head>
@@ -90,109 +91,162 @@
 <body>
   <header>
     <h1>Experience</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
+    <nav><a href="index.html">Home</a></nav>
   </header>
 
   <main>
 
-    <!-- Education ---------------------------------------------------------->
+    <!-- ===================== Education ===================== -->
     <section class="section-box">
       <h2>Education</h2>
+
       <div class="education-item">
-        <div class="education-container-inner">
-          <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
-          <span><strong>Korea Advanced Institute of Science and Technology</strong><br />B.S. in Physics</span>
+        <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
+        <div>
+          <strong>Korea Advanced Institute of Science and Technology</strong><br>
+          B.S. in Physics
         </div>
-        <span class="date">2023 – Present</span>
+        <div class="date">2023 – Present</div>
       </div>
 
       <div class="education-item">
-        <div class="education-container-inner">
-          <img src="KSA-logo.webp" alt="KSA" class="institution-logo" />
-          <span><strong>Korea Science Academy of KAIST</strong><br />KAIST-affiliated High School</span>
+        <img src="KSA-logo.webp" alt="KSA" class="institution-logo">
+        <div>
+          <strong>Korea Science Academy of KAIST</strong><br>
+          KAIST-affiliated High School
         </div>
-        <span class="date">2020 – 2022</span>
+        <div class="date">2020 – 2022</div>
       </div>
     </section>
 
-    <!-- Research experience ------------------------------------------------>
+    <!-- ===================== Research ===================== -->
     <section class="section-box">
       <h2>Research Experience</h2>
       <ul>
+
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
-            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: G.Y. Cho)</span>
+          <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
+
+          <div>
+            <strong>KAIST</strong><br>
+            Undergraduate Intern (PI: G.Y. Cho)
           </div>
-          <span class="date">Feb 2025 – Present</span>
-          <p>Investigation of the error term of chiral central charge caused by deviations from a strict entanglement-area law.</p>
+
+          <div class="date">Feb 2025 – Present</div>
+
+          <p class="description">
+            Investigation of the error term of chiral central charge caused by
+            deviations from a strict entanglement-area law.
+          </p>
         </li>
 
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
-            <span><strong>Nanyang Technological University</strong><br />Undergraduate Intern (PI: N. Ng)</span>
+          <img src="NTU-logo.png" alt="NTU" class="institution-logo">
+
+          <div>
+            <strong>Nanyang Technological University</strong><br>
+            Undergraduate Intern (PI: N. Ng)
           </div>
-          <span class="date">Aug 2024 – Jan 2025</span>
-          <p>(Ongoing) Exploring the correspondence between Gibbs-preserving covariant channels and thermal operations.</p>
+
+          <div class="date">Aug 2024 – Jan 2025</div>
+
+          <p class="description">
+            (Ongoing) Exploring the correspondence between Gibbs-preserving
+            covariant channels and thermal operations.
+          </p>
         </li>
 
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
-            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: J.Y. Choi)</span>
+          <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
+
+          <div>
+            <strong>KAIST</strong><br>
+            Undergraduate Intern (PI: J.Y. Choi)
           </div>
-          <span class="date">Sep 2023 – Feb 2024</span>
-          <p>Learned optical experimental techniques and built a Python-based GUI for a temperature-control system.</p>
+
+          <div class="date">Sep 2023 – Feb 2024</div>
+
+          <p class="description">
+            Learned optical experimental techniques and built a Python-based
+            GUI for a temperature-control system.
+          </p>
         </li>
 
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
-            <span><strong>KAIST</strong><br />Undergraduate Intern (PI: J.W. Ahn)</span>
+          <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
+
+          <div>
+            <strong>KAIST</strong><br>
+            Undergraduate Intern (PI: J.W. Ahn)
           </div>
-          <span class="date">Jun 2023 – Sep 2023</span>
-          <p><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Developed a Rydberg-atom-graph approach for solving QUBO problems.</a></p>
+
+          <div class="date">Jun 2023 – Sep 2023</div>
+
+          <p class="description">
+            <a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">
+              Developed a Rydberg-atom-graph approach for solving QUBO problems.
+            </a>
+          </p>
         </li>
+
       </ul>
     </section>
 
-    <!-- Exchange programmes ----------------------------------------------->
+    <!-- ===================== Exchange ===================== -->
     <section class="section-box">
       <h2>Exchange Programmes</h2>
       <ul>
+
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="DTU-logo.png" alt="DTU" class="institution-logo" />
-            <span><strong>Technical University of Denmark</strong><br />Short-term Exchange</span>
+          <img src="DTU-logo.png" alt="DTU" class="institution-logo">
+
+          <div>
+            <strong>Technical University of Denmark</strong><br>
+            Short-term Exchange
           </div>
-          <span class="date">Summer 2025</span>
-          <p>Earned three credits.</p>
+
+          <div class="date">Summer 2025</div>
+
+          <p class="description">Earned three credits.</p>
         </li>
 
         <li class="experience-item">
-          <div class="experience-container">
-            <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
-            <span><strong>Nanyang Technological University</strong><br />Exchange Programme</span>
+          <img src="NTU-logo.png" alt="NTU" class="institution-logo">
+
+          <div>
+            <strong>Nanyang Technological University</strong><br>
+            Exchange Programme
           </div>
-          <span class="date">Autumn 2024</span>
-          <p>Research internship &amp; completed 9 credits.</p>
+
+          <div class="date">Autumn 2024</div>
+
+          <p class="description">
+            Research internship and completed 9 credits.
+          </p>
         </li>
+
       </ul>
     </section>
 
-    <!-- Study group -------------------------------------------------------->
+    <!-- ===================== Study group ===================== -->
     <section class="section-box">
       <h2>Quantum Information Study Group</h2>
       <ul>
         <li class="experience-item">
-          <div class="experience-container">
-            <span><strong>Quantum Information Study Group</strong><br />Founder</span>
+          <!-- no logo, so use an empty div to keep grid structure -->
+          <div></div>
+
+          <div>
+            <strong>Quantum Information Study Group</strong><br>
+            Founder
           </div>
-          <span class="date">Apr 2024 – Present</span>
-          <p>Organised a 15-member joint KAIST/SNU group to discuss quantum-information topics weekly.</p>
+
+          <div class="date">Apr 2024 – Present</div>
+
+          <p class="description">
+            Organised a 15-member joint KAIST/SNU group to discuss
+            quantum-information topics weekly.
+          </p>
         </li>
       </ul>
     </section>
