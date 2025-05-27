@@ -22,7 +22,6 @@
       text-align: center;
     }
 
-    /* ---------- header / nav ---------- */
     header {
       background: #fff;
       padding: 2rem;
@@ -30,35 +29,57 @@
       box-shadow: 0 4px 6px rgba(0,0,0,.1);
       width: 90%;
       max-width: 800px;
+      margin-bottom: 32px;
     }
 
-    nav { margin-top: 15px; }
-    nav a { color: #0066cc; text-decoration: none; }
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
 
-    /* ---------- generic section card ---------- */
+    nav a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+    }
+
     .section-box {
       width: 90%;
       max-width: 800px;
       background: #fff;
-      margin-top: 32px;
+      margin-bottom: 32px;
       padding: 24px;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,.1);
       text-align: left;
     }
 
-    /* ---------- grid layout for every row ---------- */
+    .section-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
     .education-item,
     .experience-item {
       display: grid;
-      grid-template-columns: 80px 1fr auto; /* logo | text | date */
+      grid-template-columns: 80px 1fr auto;
       gap: 12px;
       align-items: start;
       padding: 16px 0;
       border-bottom: 1px solid #ddd;
     }
+
     .education-item:last-child,
-    .experience-item:last-child { border-bottom: none; }
+    .experience-item:last-child {
+      border-bottom: none;
+    }
 
     .institution-logo {
       width: 80px;
@@ -73,14 +94,13 @@
       text-align: right;
     }
 
-    /* description lines line up under text + date */
     .description {
-      grid-column: 2 / -1;     /* spans columns 2-3 */
+      grid-column: 2 / -1;
       margin-top: 4px;
     }
 
     footer {
-      margin: 50px 0 10px;
+      margin: 40px 0 10px;
       font-size: .9rem;
       color: #555;
       text-align: center;
@@ -96,7 +116,6 @@
 
   <main>
 
-    <!-- ===================== Education ===================== -->
     <section class="section-box">
       <h2>Education</h2>
 
@@ -119,21 +138,17 @@
       </div>
     </section>
 
-    <!-- ===================== Research ===================== -->
     <section class="section-box">
       <h2>Research Experience</h2>
       <ul>
 
         <li class="experience-item">
           <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
-
           <div>
             <strong>KAIST</strong><br>
             Undergraduate Intern (PI: G.Y. Cho)
           </div>
-
           <div class="date">Feb 2025 – Present</div>
-
           <p class="description">
             Investigation of the error term of chiral central charge caused by
             deviations from a strict entanglement-area law.
@@ -142,14 +157,11 @@
 
         <li class="experience-item">
           <img src="NTU-logo.png" alt="NTU" class="institution-logo">
-
           <div>
             <strong>Nanyang Technological University</strong><br>
             Undergraduate Intern (PI: N. Ng)
           </div>
-
           <div class="date">Aug 2024 – Jan 2025</div>
-
           <p class="description">
             (Ongoing) Exploring the correspondence between Gibbs-preserving
             covariant channels and thermal operations.
@@ -158,14 +170,11 @@
 
         <li class="experience-item">
           <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
-
           <div>
             <strong>KAIST</strong><br>
             Undergraduate Intern (PI: J.Y. Choi)
           </div>
-
           <div class="date">Sep 2023 – Feb 2024</div>
-
           <p class="description">
             Learned optical experimental techniques and built a Python-based
             GUI for a temperature-control system.
@@ -174,14 +183,11 @@
 
         <li class="experience-item">
           <img src="kaist-logo.png" alt="KAIST" class="institution-logo">
-
           <div>
             <strong>KAIST</strong><br>
             Undergraduate Intern (PI: J.W. Ahn)
           </div>
-
           <div class="date">Jun 2023 – Sep 2023</div>
-
           <p class="description">
             <a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">
               Developed a Rydberg-atom-graph approach for solving QUBO problems.
@@ -192,34 +198,27 @@
       </ul>
     </section>
 
-    <!-- ===================== Exchange ===================== -->
     <section class="section-box">
       <h2>Exchange Programmes</h2>
       <ul>
 
         <li class="experience-item">
           <img src="DTU-logo.png" alt="DTU" class="institution-logo">
-
           <div>
             <strong>Technical University of Denmark</strong><br>
             Short-term Exchange
           </div>
-
           <div class="date">Summer 2025</div>
-
           <p class="description">Earned three credits.</p>
         </li>
 
         <li class="experience-item">
           <img src="NTU-logo.png" alt="NTU" class="institution-logo">
-
           <div>
             <strong>Nanyang Technological University</strong><br>
             Exchange Programme
           </div>
-
           <div class="date">Autumn 2024</div>
-
           <p class="description">
             Research internship and completed 9 credits.
           </p>
@@ -228,21 +227,16 @@
       </ul>
     </section>
 
-    <!-- ===================== Study group ===================== -->
     <section class="section-box">
       <h2>Quantum Information Study Group</h2>
       <ul>
         <li class="experience-item">
-          <!-- no logo, so use an empty div to keep grid structure -->
           <div></div>
-
           <div>
             <strong>Quantum Information Study Group</strong><br>
             Founder
           </div>
-
           <div class="date">Apr 2024 – Present</div>
-
           <p class="description">
             Organised a 15-member joint KAIST/SNU group to discuss
             quantum-information topics weekly.
