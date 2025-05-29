@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Junwoo Jung</title>
 
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    header {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
+      width: 90%;
+      max-width: 800px;
+    }
+
+    nav { margin-top: 15px; }
+    nav a { color: #0066cc; text-decoration: none; }
+
+    /* ---------- section card ---------- */
+    .section-box {
+      width: 90%;
+      max-width: 800px;
+      background: #fff;
+      margin-top: 32px;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,.1);
+      text-align: left;
+    }
+
+    /* ---------- project rows ---------- */
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr auto; /* text | date */
+      gap: 12px;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .project-item:last-child { border-bottom: none; }
+
+    .project-title { font-size: 1.1rem; font-weight: 600; }
+
+    .project-date {
+      font-weight: 600;
+      color: #555;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .project-description {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+
+    footer {
+      margin: 50px 0 10px;
+      font-size: .9rem;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Projects</h1>
+    <nav>
+      <a href="index.html">Home</a> •
+      <a href="experience.html">Experience</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-box">
+      <h2>Selected Research Projects</h2>
+
+      <!-- ---------- Project 3 ---------- -->
+      <div class="project-item">
+        <div>
+          <div class="project-title">
+            Correcting the Chiral Central Charge in Entanglement-Area-Law
+            Violations
+          </div>
+          <div>PI&nbsp;— Prof.&nbsp;Gilyoung&nbsp;Cho (KAIST)</div>
+        </div>
+        <div class="project-date">2025 – Present</div>
+
+        <p class="project-description">
+          Topologically ordered phases in (2+1)-D are characterised by
+          <em>c –&ccedil;</em>, the chiral central charge appearing in the edge
+          CFT and modular <em>S,T</em> matrices.  We noticed that numerical
+          extractions of <em>c –&ccedil;</em> from entanglement entropy show a
+          systematic “overshoot” if the underlying state only approximately
+          obeys a strict area law.  By deriving analytic bounds on the excess
+          mutual information across a smooth entangling cut, we formulated a
+          correction term that restores the expected quantisation of
+          <em>c –&ccedil;</em> to within <span style="white-space:nowrap;">±0.01</span>.
+          The method is now being benchmarked on tensor-network simulations of
+          non-Abelian fractional quantum Hall states.
+        </p>
+      </div>
+
+      <!-- ---------- Project 2 ---------- -->
+      <div class="project-item">
+        <div>
+          <div class="project-title">
+            Thermal Operations vs.&nbsp;Gibbs-Preserving Covariant Channels
+          </div>
+          <div>PI&nbsp;— Dr.&nbsp;Nelly&nbsp;Ng (NTU Singapore)</div>
+        </div>
+        <div class="project-date">2024 – 2025</div>
+
+        <p class="project-description">
+          We proved that, for systems with non-degenerate energy gaps, the set
+          of states reachable under Gibbs-preserving channels that are covariant
+          with respect to time translations coincides exactly with those
+          reachable under Thermal Operations (TO).  The work extends resource-
+          theoretic notions of thermodynamic accessibility beyond qubit models
+          to arbitrary finite-dimension Hilbert spaces, and gives an explicit
+          catalytic construction showing the equivalence.  Current efforts focus
+          on the <em>computational complexity</em> of deciding TO-reachability
+          and its implications for quantum thermodynamic engines.
+        </p>
+      </div>
+
+      <!-- ---------- Project 1 ---------- -->
+      <div class="project-item">
+        <div>
+          <div class="project-title">
+            Rydberg-Atom Graphs for Quadratic Unconstrained Binary Optimisation
+          </div>
+          <div>PI&nbsp;— Prof.&nbsp;Jae&nbsp;Wook&nbsp;Ahn (KAIST)</div>
+        </div>
+        <div class="project-date">2023</div>
+
+        <p class="project-description">
+          We introduced a mapping that embeds any sparse QUBO instance onto a
+          two-dimensional array of laser-dressed Rydberg atoms, realising the
+          Ising cost function through van-der-Waals interactions.  The scheme
+          reduces ancillary overhead by ≈30 % compared with
+          state-of-the-art minor-embedding techniques and was published in
+          <a href="https://doi.org/10.1002/qute.202300398"
+             target="_blank" rel="noopener noreferrer">Adv. Quantum Technol. 2024</a>.
+          My contribution covered the graph-theoretic embedding algorithm and
+          a Python simulation package that verifies adiabatic gap scaling for
+          up to 200 qubits.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Junwoo Jung. Built with 💻 and hosted on
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+  </footer>
+</body>
+</html>
