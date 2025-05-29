@@ -22,10 +22,10 @@
       text-align: center;
     }
 
-    /* header width now matches the cards exactly */
+    /* header and cards now share identical side padding */
     header {
       background: #fff;
-      padding: 2rem;
+      padding: 2rem;                /* ← 32 px on all sides */
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,.1);
       width: 90%;
@@ -35,13 +35,13 @@
     nav { margin-top: 15px; }
     nav a { color: #0066cc; text-decoration: none; }
 
-    /* card wrapper */
+    /* ---------- section card ---------- */
     .section-box {
       width: 90%;
       max-width: 800px;
       background: #fff;
       margin-top: 32px;
-      padding: 24px;
+      padding: 2rem;                /* ← now 32 px, matching header */
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,.1);
       text-align: left;
@@ -58,21 +58,10 @@
     .project-item:last-child { border-bottom: none; }
 
     .project-title { font-size: 1.1rem; font-weight: 600; }
+    .project-date  { font-weight: 600; color: #555; text-align: right; white-space: nowrap; }
 
-    .project-date {
-      font-weight: 600;
-      color: #555;
-      text-align: right;
-      white-space: nowrap;
-    }
+    .project-description { grid-column: 1 / -1; margin-top: 6px; line-height: 1.55; }
 
-    .project-description {
-      grid-column: 1 / -1;
-      margin-top: 6px;
-      line-height: 1.55;
-    }
-
-    /* figure spans whole card width */
     .project-image {
       grid-column: 1 / -1;
       width: 100%;
@@ -116,11 +105,10 @@
 
         <p class="project-description">
           Topologically ordered phases in (2+1)-D are characterised by
-          <em>c&nbsp;−&ccedil;</em>, the chiral central charge appearing in the
-          edge-state CFT and modular <em>S,T</em> matrices. Numerical
-          extractions overshoot if the state only approximately obeys an area
-          law. We derived analytic bounds on the excess mutual information and
-          formulated a correction term, restoring quantisation of
+          <em>c&nbsp;−&ccedil;</em>, the chiral central charge in the edge-state
+          CFT. Numerical extractions overshoot when the state only
+          approximately obeys an area law. We derived analytic bounds on excess
+          mutual information and a correction term that restores quantisation of
           <em>c&nbsp;−&ccedil;</em> to ±0.01. Benchmarking is underway on
           tensor-network simulations of non-Abelian FQH states.
         </p>
@@ -132,7 +120,7 @@
           <div class="project-title">
             Thermal Operations vs.&nbsp;Gibbs-Preserving Covariant Channels
           </div>
-          <div>PI — Prof.&nbsp;Nelly&nbsp;Ng (NTU Singapore)</div>
+          <div>PI — Dr.&nbsp;Nelly&nbsp;Ng (NTU Singapore)</div>
         </div>
         <div class="project-date">2024 – 2025</div>
 
@@ -159,8 +147,8 @@
         <p class="project-description">
           We mapped sparse QUBO instances onto planar arrays of laser-dressed
           Rydberg atoms, realising Ising couplings via van-der-Waals
-          interactions. The scheme cuts ancillary overhead by ≈30 % compared
-          with minor-embedding techniques and was published in&nbsp;
+          interactions. The scheme reduces ancillary overhead by ≈30 % compared
+          with minor-embedding and was published in&nbsp;
           <a href="https://doi.org/10.1002/qute.202300398" target="_blank"
              rel="noopener noreferrer">
             Adv. Quantum Technol. 2024
@@ -168,7 +156,7 @@
           200 qubits.
         </p>
 
-        <!-- The figure you provided -->
+        <!-- project figure -->
         <img src="figure.jpg"
              alt="Illustration of embedding a two-variable QUBO into a Rydberg-atom graph"
              class="project-image">
