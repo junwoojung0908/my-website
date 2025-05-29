@@ -6,6 +6,7 @@
   <title>Projects | Junwoo Jung</title>
 
   <style>
+    /* ---------- shared look with experience.html ---------- */
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,9 +33,8 @@
       margin-bottom: 32px;
     }
 
-    header h1 { margin-bottom: 0.5rem; }
-
-    nav a  { color: #0066cc; text-decoration: none; }
+    header h1 { margin-bottom: .5rem; }
+    nav a     { color: #0066cc; text-decoration: none; }
 
     main {
       width: 100%;
@@ -54,25 +54,20 @@
       text-align: left;
     }
 
+    /* ---------- project list styling ---------------------- */
     .section-box ul { list-style: none; padding: 0; margin: 0; }
 
-    /* same three-column grid: 80px | content | date */
+    /* two-column grid: content | date  */
     .project-item {
       display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 12px;
+      grid-template-columns: 1fr 140px;
+      gap: 16px;
       align-items: start;
-      padding: 16px 0;
-      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
     }
-    .project-item:last-child { border-bottom: none; }
 
-    /* dummy 80-px logo slot keeps alignment with experience.html */
-    .project-logo {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
+    /* subtle rule between items (except first) */
+    .project-item + .project-item { border-top: 1px solid #e1e4e8; }
 
     .date {
       font-weight: 600;
@@ -81,12 +76,16 @@
       text-align: right;
     }
 
+    .title   { font-weight: 600; }
+    .pi-line { font-size: .95rem; margin-top: 2px; opacity: .8; }
+
     .description {
-      grid-column: 2 / -1;
-      margin-top: 4px;
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      line-height: 1.55;
+      max-width: 65ch;     /* keeps paragraphs readable on wide screens */
     }
 
-    /* optional figure spans full width inside the grid */
     .project-image {
       grid-column: 1 / -1;
       width: 100%;
@@ -119,69 +118,59 @@
 
         <!-- Project 3 -->
         <li class="project-item">
-          <!-- No logo yet – leave blank div to keep columns aligned -->
-          <div></div>
-
           <div>
-            <strong>Correcting the Chiral Central Charge in Entanglement-Area-Law Violations</strong><br>
-            PI: Prof.&nbsp;Gilyoung&nbsp;Cho (KAIST)
+            <div class="title">Correcting the Chiral Central Charge in Entanglement-Area-Law Violations</div>
+            <div class="pi-line">PI: Prof.&nbsp;Gilyoung&nbsp;Cho&nbsp;(KAIST)</div>
           </div>
-
           <div class="date">2025 – Present</div>
 
           <p class="description">
-            Topologically ordered phases in (2+1)-D are characterised by the chiral
-            central charge <em>c<sub>−</sub></em>.  Numerical extractions overshoot when
-            the state only approximately obeys an area law.  We derived analytic
-            bounds on excess mutual information and a correction term that restores
-            quantisation to ±0.01.  Benchmarking is underway on tensor-network
-            simulations of non-Abelian FQH states.
+            Topologically ordered phases in (2+1)-D are characterised by the
+            chiral central charge <em>c<sub>−</sub></em>. Numerical extractions
+            overshoot when the state only approximately obeys an area law. We
+            derived analytic bounds on excess mutual information and a
+            correction term that restores quantisation to ±0.01. Benchmarking is
+            underway on tensor-network simulations of non-Abelian FQH states.
           </p>
         </li>
 
         <!-- Project 2 -->
         <li class="project-item">
-          <div></div>
-
           <div>
-            <strong>Thermal Operations vs.&nbsp;Gibbs-Preserving Covariant Channels</strong><br>
-            PI: Dr.&nbsp;Nelly&nbsp;Ng (NTU Singapore)
+            <div class="title">Thermal Operations vs. Gibbs-Preserving Covariant Channels</div>
+            <div class="pi-line">PI: Dr.&nbsp;Nelly&nbsp;Ng&nbsp;(NTU Singapore)</div>
           </div>
-
           <div class="date">2024 – 2025</div>
 
           <p class="description">
-            For systems with non-degenerate energy gaps we proved that the states
-            reachable under Gibbs-preserving covariant channels coincide exactly
-            with those reachable via Thermal Operations.  The catalytic construction
-            extends resource-theoretic thermodynamics to arbitrary finite
-            dimensions.  Ongoing work analyses the complexity of deciding
+            For systems with non-degenerate energy gaps we proved that the
+            states reachable under Gibbs-preserving covariant channels coincide
+            exactly with those reachable via Thermal Operations. The catalytic
+            construction extends resource-theoretic thermodynamics to arbitrary
+            finite dimensions. Ongoing work analyses the complexity of deciding
             TO-reachability.
           </p>
         </li>
 
         <!-- Project 1 -->
         <li class="project-item">
-          <div></div>
-
           <div>
-            <strong>Rydberg-Atom Graphs for Quadratic Unconstrained Binary Optimisation</strong><br>
-            PI: Prof.&nbsp;Jae&nbsp;Wook&nbsp;Ahn (KAIST)
+            <div class="title">Rydberg-Atom Graphs for Quadratic Unconstrained Binary Optimisation</div>
+            <div class="pi-line">PI: Prof.&nbsp;Jae&nbsp;Wook&nbsp;Ahn&nbsp;(KAIST)</div>
           </div>
-
           <div class="date">2023</div>
 
           <p class="description">
             We mapped sparse QUBO instances onto planar arrays of laser-dressed
-            Rydberg atoms, realising Ising couplings via van-der-Waals interactions.
-            The scheme reduces ancillary overhead by ≈30 % and was published in&nbsp;
-            <a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">
-              Adv. Quantum Technol. 2024
-            </a>.  I led the graph-embedding algorithm and Python simulations up to
+            Rydberg atoms, realising Ising couplings via van-der-Waals
+            interactions. The scheme reduces ancillary overhead by ≈30 % and was
+            published in
+            <a href="https://doi.org/10.1002/qute.202300398" target="_blank"
+               rel="noopener noreferrer">Adv. Quantum Technol.&nbsp;2024</a>.
+            I led the graph-embedding algorithm and Python simulations up to
             200 qubits.
           </p>
 
-          <!-- Optional figure -->
           <img src="figure.jpg" alt="QUBO mapping figure" class="project-image">
         </li>
 
@@ -191,8 +180,8 @@
   </main>
 
   <footer>
-    &copy; 2025 Junwoo Jung. Built with 💻 and hosted on
-    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+    &copy; 2025 Junwoo Jung&nbsp;| Built with 💻 and hosted on
+    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub&nbsp;Pages</a>.
   </footer>
 </body>
 </html>
