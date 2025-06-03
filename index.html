@@ -18,136 +18,55 @@
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    /* ---------------- CSS RESET ---------------- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; }
+    /* ---------------- RESET ---------------- */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
+    button{font-family:inherit;border:none;background:none;cursor:pointer;}
 
-    :root {
-      /* Light theme tokens */
-      --bg: #f5f7fa;
-      --card-bg: #ffffffcc; /* translucent card */
-      --text: #1f1f1f;
-      --text-muted: #555;
-      --accent: #6366f1;
-      --shadow: rgba(0,0,0,.08);
-    }
-    /* Dark overrides when data-theme="dark" */
-    [data-theme="dark"] {
-      --bg: #101112;
-      --card-bg: #1c1d20cc;
-      --text: #e5e7eb;
-      --text-muted: #a1a1aa;
-      --shadow: rgba(0,0,0,.4);
-    }
+    :root{--bg:#f5f7fa;--card-bg:#ffffffcc;--text:#1f1f1f;--text-muted:#555;--accent:#6366f1;--shadow:rgba(0,0,0,.08);}
+    [data-theme="dark"]{--bg:#101112;--card-bg:#1c1d20cc;--text:#e5e7eb;--text-muted:#a1a1aa;--shadow:rgba(0,0,0,.4);}
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background .3s, color .3s; /* smooth theme change */
-    }
+    body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
 
-    /* ------------- NAV ---------------- */
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      backdrop-filter: blur(8px);
-      background: var(--card-bg);
-      box-shadow: 0 1px 3px var(--shadow);
-      transition: background .3s;
-    }
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .75rem 1rem;
-    }
-    .nav-left { font-weight:600; }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: var(--accent); }
+    /* ------------- NAV ------------- */
+    nav{position:sticky;top:0;z-index:20;background:var(--card-bg);backdrop-filter:blur(8px);box-shadow:0 1px 3px var(--shadow);transition:background .3s;}
+    .nav-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;}
+    .nav-left{font-weight:600;}
+    .nav-links{display:flex;gap:1rem;font-weight:500;align-items:center;}
+    .nav-links a:hover{color:var(--accent);}
+    .theme-toggle{font-size:1.25rem;line-height:1;padding:.25rem;transition:transform .2s;}
+    .theme-toggle:hover{transform:rotate(20deg);}   
+    /* CV button */
+    .btn-cv{display:flex;align-items:center;gap:.3rem;padding:.4rem 1rem;border-radius:9999px;background:var(--accent);color:#fff;font-weight:500;box-shadow:0 2px 5px var(--shadow);transition:.2s;}
+    .btn-cv:hover{transform:translateY(-2px);box-shadow:0 4px 10px var(--shadow);}  
+    .btn-cv svg{width:18px;height:18px;fill:currentColor;}
 
-    /* theme toggle button */
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.25rem;
-      line-height: 1;
-      cursor: pointer;
-      padding: .25rem;
-      transition: transform .2s;
-    }
-    .theme-toggle:hover { transform: rotate(20deg); }
+    /* ------------- HERO ------------- */
+    main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem 3rem;}
+    .hero{max-width:900px;width:100%;display:grid;grid-template-columns:1fr;gap:2rem;text-align:center;background:var(--card-bg);backdrop-filter:blur(12px);padding:3rem 2rem;border-radius:20px;box-shadow:0 6px 16px var(--shadow);animation:fadeIn .6s ease;transition:background .3s,box-shadow .3s;}
+    @media(min-width:768px){.hero{grid-template-columns:200px 1fr;text-align:left;}}
 
-    /* ------------- HERO ---------------- */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem 3rem;
-    }
-    .hero {
-      max-width: 900px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      background: var(--card-bg);
-      padding: 3rem 2rem;
-      border-radius: 20px;
-      box-shadow: 0 6px 16px var(--shadow);
-      animation: fadeIn .6s ease;
-      transition: background .3s, box-shadow .3s;
-    }
-    @media (min-width: 768px) {
-      .hero { grid-template-columns: 200px 1fr; text-align: left; }
-    }
+    .profile-photo{width:200px;height:200px;object-fit:cover;border-radius:50%;}
+    h1{font-size:2.2rem;font-weight:600;margin-bottom:.25rem;}
+    .subtitle{font-size:1rem;color:var(--text-muted);margin-bottom:1.25rem;transition:color .3s;}
+    .bio{font-weight:300;line-height:1.65;max-width:60ch;}
+    .social{margin-top:1.5rem;display:flex;gap:.75rem;}
+    .social img{width:28px;height:28px;filter:grayscale(1) brightness(.6);transition:.2s;}
+    .social img:hover{filter:none;transform:translateY(-2px);}    
 
-    .profile-photo {
-      width: 200px; height: 200px; object-fit: cover; border-radius: 50%;
-    }
+    /* CV wrapper below hero */
+    .cv-download{margin-top:1.75rem;display:flex;justify-content:center;}
 
-    h1 { font-size: 2.2rem; font-weight:600; margin-bottom:.25rem; }
-    .subtitle { font-size:1rem; color:var(--text-muted); margin-bottom:1.25rem; transition: color .3s; }
-    .bio { font-weight:300; line-height:1.65; max-width: 60ch; }
-    .social {
-      margin-top: 1.5rem;
-      display: flex; gap: .75rem;
-    }
-    .social img { width: 28px; height: 28px; filter: grayscale(1) brightness(.6); transition: .2s; }
-    .social img:hover { filter: none; transform: translateY(-2px); }
+    /* ------------- FOOTER ------------- */
+    footer{font-size:.85rem;text-align:center;padding:1.5rem 0 .75rem;color:var(--text-muted);transition:color .3s;}
 
-    /* ------------- FOOTER ---------------- */
-    footer {
-      font-size: .85rem;
-      text-align: center;
-      padding: 1.5rem 0 .75rem;
-      color: var(--text-muted);
-      transition: color .3s;
-    }
-
-    /* ------------- ANIMATIONS ---------------- */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    /* ------------- ANIMATIONS ------------- */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
   </style>
 </head>
 <body>
-
-  <!-- ===== NAV ===== -->
+  <!-- ===== NAVBAR ===== -->
   <nav>
     <div class="nav-container">
       <span class="nav-left">Junwoo Jung</span>
@@ -155,7 +74,7 @@
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="QIstudygroup.html">Study Group</a>
-        <!-- Theme Toggle -->
+        <!-- Theme toggle -->
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
       </div>
     </div>
@@ -165,23 +84,23 @@
   <main>
     <section class="hero">
       <img src="my-photo.jpeg" alt="Junwoo Jung" class="profile-photo" />
-
       <div class="hero-copy">
         <h1>Junwoo Jung</h1>
         <p class="subtitle"><a href="mailto:gguby@kaist.ac.kr">gguby@kaist.ac.kr</a></p>
-        <p class="bio">
-          I’m a third-year physics undergraduate at <strong>KAIST</strong> exploring the crossroads of quantum information and many-body theory. My recent work spans Rydberg-atom graph embeddings for QUBO optimisation to resource-theoretic questions in quantum thermodynamics. Off duty, you’ll catch me cycling the riverside paths around Daejeon.
-        </p>
+        <p class="bio">I’m a third-year physics undergraduate at <strong>KAIST</strong> exploring the crossroads of quantum information and many-body theory. My recent work spans Rydberg-atom graph embeddings for QUBO optimisation to resource-theoretic questions in quantum thermodynamics. Off-duty, you’ll catch me cycling the riverside paths around Daejeon.</p>
         <div class="social">
-          <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" />
-          </a>
-          <a href="https://www.linkedin.com/in/junwoo-jung-1a6363218" target="_blank" rel="noopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" />
-          </a>
+          <a href="https://scholar.google.com/citations?user=uUQhFGAAAAAJ" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" /></a>
+          <a href="https://www.linkedin.com/in/junwoo-jung-1a6363218" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" /></a>
         </div>
       </div>
     </section>
+    <!-- CV button centered below hero -->
+    <div class="cv-download">
+      <a href="Junwoo_Jung_CV.pdf" download class="btn-cv" onclick="gtag('event','download_cv',{file_name:'Junwoo_Jung_CV.pdf'});">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2zm7-18l-5 5h3v4h4V7h3l-5-5z"/></svg>
+        Download CV
+      </a>
+    </div>
   </main>
 
   <!-- ===== FOOTER ===== -->
@@ -191,35 +110,11 @@
 
   <!-- ===== THEME TOGGLE SCRIPT ===== -->
   <script>
-    (function() {
-      const root = document.documentElement;
-      const btn  = document.getElementById('theme-toggle');
-
-      // 1️⃣  initialise theme -------------------------------------------------
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (stored) {
-        root.setAttribute('data-theme', stored);
-      } else if (prefersDark) {
-        root.setAttribute('data-theme', 'dark');
-      }
+    (function(){
+      const root=document.documentElement;
+      const btn=document.getElementById('theme-toggle');
+      const stored=localStorage.getItem('theme');
+      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(stored){root.setAttribute('data-theme',stored);}else if(prefersDark){root.setAttribute('data-theme','dark');}
       updateIcon();
-
-      // 2️⃣  toggle handler -------------------------------------------------
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next    = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateIcon();
-      });
-
-      // 3️⃣  helper to swap emoji icon --------------------------------------
-      function updateIcon() {
-        btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
-        btn.setAttribute('aria-label', root.getAttribute('data-theme') === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
-    })();
-  </script>
-</body>
-</html>
+      btn.addEventListener('click',()=>{const cur=root.getAttribute('data-theme');const next=cur==='dark'?'light':'
