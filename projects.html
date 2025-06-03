@@ -1,186 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Junwoo Jung</title>
 
-  <style>
-    /* ---------- shared look with experience.html ---------- */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" />
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <style>
+    /* -------------- RESET -------------- */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    img { max-width: 100%; display:block; }
+    a { color: inherit; text-decoration:none; }
+    button { font-family: inherit; border:none; background:none; cursor:pointer; }
+
+    :root {
+      /* Light tokens */
+      --bg:#f5f7fa;
+      --card-bg:#ffffffcc;
+      --text:#1f1f1f;
+      --text-muted:#555;
+      --accent:#6366f1;
+      --shadow:rgba(0,0,0,.08);
+    }
+    [data-theme="dark"] {
+      --bg:#101112;
+      --card-bg:#1c1d20cc;
+      --text:#e5e7eb;
+      --text-muted:#a1a1aa;
+      --shadow:rgba(0,0,0,.4);
+    }
 
     body {
-      font-family: "Poppins", sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 40px 0;
-      text-align: center;
+      font-family:"Poppins",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      transition:background .3s,color .3s;
     }
 
-    header {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,.1);
-      width: 90%;
-      max-width: 800px;
-      margin-bottom: 32px;
+    /* -------------- NAV -------------- */
+    nav {
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(8px);
+      background:var(--card-bg);
+      box-shadow:0 1px 3px var(--shadow);
+      transition:background .3s;
+    }
+    .nav-container {
+      max-width:1100px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.75rem 1rem;
+    }
+    .nav-left{font-weight:600;}
+    .nav-links{display:flex;gap:1rem;font-weight:500;}
+    .nav-links a:hover{color:var(--accent);}
+    .theme-toggle{font-size:1.25rem;line-height:1;padding:.25rem;transition:transform .2s;}
+    .theme-toggle:hover{transform:rotate(20deg);}    
+
+    /* -------------- MAIN -------------- */
+    main{flex:1;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem 3rem;}
+
+    h1{font-size:2rem;font-weight:600;margin-bottom:.25rem;text-align:center;}
+    h2{font-size:1.25rem;font-weight:500;margin-bottom:1rem;}
+
+    .section-box{
+      width:100%;max-width:900px;
+      background:var(--card-bg);
+      padding:2rem 1.5rem;
+      border-radius:20px;
+      box-shadow:0 6px 16px var(--shadow);
+      margin-bottom:2rem;
+      transition:background .3s,box-shadow .3s;
+      text-align:left;
     }
 
-    header h1 { margin-bottom: .5rem; }
-    nav a     { color: #0066cc; text-decoration: none; }
+    /* -------- project list styling -------- */
+    .section-box ul{list-style:none;}
 
-    main {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+    .project-item{display:grid;grid-template-columns:1fr 140px;gap:16px;align-items:start;padding:20px 0;}
+    .project-item + .project-item{border-top:1px solid var(--shadow);}    
+    .date{font-weight:600;color:var(--text-muted);white-space:nowrap;text-align:right;}
+    .title{font-weight:600;}
+    .pi-line{font-size:.95rem;margin-top:2px;opacity:.8;}
+    .description{grid-column:1 / -1;margin-top:6px;line-height:1.55;max-width:65ch;}
+    .project-image{grid-column:1 / -1;width:100%;height:auto;margin-top:14px;border-radius:6px;box-shadow:0 2px 4px rgba(0,0,0,.08);}    
 
-    .section-box {
-      width: 90%;
-      max-width: 800px;
-      background: #fff;
-      margin-bottom: 32px;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,.1);
-      text-align: left;
-    }
-
-    /* ---------- project list styling ---------------------- */
-    .section-box ul { list-style: none; padding: 0; margin: 0; }
-
-    /* two-column grid: content | date  */
-    .project-item {
-      display: grid;
-      grid-template-columns: 1fr 140px;
-      gap: 16px;
-      align-items: start;
-      padding: 20px 0;
-    }
-
-    /* subtle rule between items (except first) */
-    .project-item + .project-item { border-top: 1px solid #e1e4e8; }
-
-    .date {
-      font-weight: 600;
-      color: #555;
-      white-space: nowrap;
-      text-align: right;
-    }
-
-    .title   { font-weight: 600; }
-    .pi-line { font-size: .95rem; margin-top: 2px; opacity: .8; }
-
-    .description {
-      grid-column: 1 / -1;
-      margin-top: 6px;
-      line-height: 1.55;
-      max-width: 65ch;     /* keeps paragraphs readable on wide screens */
-    }
-
-    .project-image {
-      grid-column: 1 / -1;
-      width: 100%;
-      height: auto;
-      margin-top: 14px;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.08);
-    }
-
-    footer {
-      margin: 40px 0 10px;
-      font-size: .9rem;
-      color: #555;
-      text-align: center;
-    }
+    /* -------------- FOOTER -------------- */
+    footer{font-size:.85rem;text-align:center;padding:1.5rem 0 .75rem;color:var(--text-muted);transition:color .3s;}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>•
-      <a href="experience.html">Experience</a>•
-      <a href="QIstudygroup.html">QI Study Group</a>
-    </nav>
-  </header>
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-container">
+      <span class="nav-left">Junwoo Jung</span>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="QIstudygroup.html">Study Group</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
 
+  <!-- ===== HEADER & CONTENT ===== -->
   <main>
+    <header style="margin-bottom:2rem;text-align:center;">
+      <h1>Projects</h1>
+    </header>
 
     <section class="section-box">
       <h2>Selected Research Projects</h2>
       <ul>
-
         <!-- Project 3 -->
         <li class="project-item">
           <div>
-            <div class="title">(Ongoing Project) Correcting the Chiral Central Charge in Entanglement-Area-Law Violations</div>
-            <div class="pi-line">PI: Prof.&nbsp;Gilyoung&nbsp;Cho&nbsp;(KAIST)</div>
+            <div class="title">(Ongoing) Correcting the Chiral Central Charge in Entanglement‑Area‑Law Violations</div>
+            <div class="pi-line">PI: Prof.&nbsp;Gilyoung&nbsp;Cho (KAIST)</div>
           </div>
           <div class="date">2025 – Present</div>
-
-          <p class="description">
-            Topologically ordered phases in (2+1)-D are characterised by the
-            chiral central charge <em>c<sub>−</sub></em>. Numerical extractions
-            overshoot when the state only approximately obeys an area law. I am aiming investigate the leading 
-            error term of chiral central charge depending on the system size, when a small error of entanglement area law is permitted.
-          </p>
+          <p class="description">Topologically ordered phases in (2+1)‑D are characterised by the chiral central charge <em>c<sub>−</sub></em>. Numerical extractions overshoot when the state only approximately obeys an area law. I investigate the leading error term of <em>c<sub>−</sub></em> as a function of system size when small violations of the area law are allowed.</p>
         </li>
 
         <!-- Project 2 -->
         <li class="project-item">
           <div>
-            <div class="title">(Ongoing Project) Thermal Operations vs. Gibbs-Preserving Covariant Channels</div>
-            <div class="pi-line">PI: Prof.&nbsp;Nelly&nbsp;Ng&nbsp;(NTU Singapore)</div>
+            <div class="title">(Ongoing) Thermal Operations vs. Gibbs‑Preserving Covariant Channels</div>
+            <div class="pi-line">PI: Prof.&nbsp;Nelly&nbsp;Ng (NTU Singapore)</div>
           </div>
           <div class="date">2024 – 2025</div>
-
-          <p class="description">
-            I am aiming to prove that for systems with non-degenerate energy gaps, the
-            states reachable under Gibbs-preserving covariant channels coincide
-            exactly with those reachable via Thermal Operations. Ongoing work analyses the complexity of deciding
-            TO-reachability.
-          </p>
+          <p class="description">For systems with non‑degenerate energy gaps, I aim to prove that the set of states reachable under Gibbs‑preserving covariant channels coincides with those reachable via Thermal Operations, and to analyse the complexity of deciding TO‑reachability.</p>
         </li>
 
         <!-- Project 1 -->
         <li class="project-item">
           <div>
-            <div class="title">Rydberg-Atom Graphs for Quadratic Unconstrained Binary Optimisation</div>
-            <div class="pi-line">PI: Prof.&nbsp;Jae&nbsp;Wook&nbsp;Ahn&nbsp;(KAIST)</div>
+            <div class="title">Rydberg‑Atom Graphs for Quadratic Unconstrained Binary Optimisation</div>
+            <div class="pi-line">PI: Prof.&nbsp;Jae&nbsp;Wook&nbsp;Ahn (KAIST)</div>
           </div>
           <div class="date">2023</div>
-
-          <p class="description">
-            Quadratic Unconstrained Binary Optimisation Problem (QUBO) is a well-known NP-complete problem, with a lot of practical usages.
-            The objective function, can be naturally mapped in to the system Hamiltonian consisting of Rydberg atoms.
-            In this work, I have developed a general method of constructing a Rydberg atom graph whose Hamiltonian corresponds to the given QUBO function.
-            The method has its own advantage from the conventional methods that the qubits do not require individual detuning, but with 'off-set qubits' and 'quantum wires'.
-            The work had been published in 
-            <a href="https://doi.org/10.1002/qute.202300398" target="_blank"
-               rel="noopener noreferrer">Adv. Quantum Technol.&nbsp;2024</a>.
-          </p>
-
-          <img src="figure.jpg" alt="QUBO mapping figure" class="project-image">
+          <p class="description">Developed a general method to construct a Rydberg‑atom graph whose Hamiltonian realises an arbitrary QUBO function without requiring individual qubit detuning by using offset qubits and quantum wires. <a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Published in Adv. Quantum Technol. 2024</a>.</p>
+          <img src="figure.jpg" alt="QUBO mapping figure" class="project-image" />
         </li>
-
       </ul>
     </section>
-
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    &copy; 2025 Junwoo Jung&nbsp;| Built with 💻 and hosted on
-    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub&nbsp;Pages</a>.
+    &copy; 2025 Junwoo Jung &bull; Built with vanilla&nbsp;HTML/CSS &bull; Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
   </footer>
+
+  <!-- ===== THEME TOGGLE SCRIPT ===== -->
+  <script>
+    (function(){
+      const root=document.documentElement;
+      const btn=document.getElementById('theme-toggle');
+      const stored=localStorage.getItem('theme');
+      const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(stored){root.setAttribute('data-theme',stored);}else if(prefersDark){root.setAttribute('data-theme','dark');}
+      updateIcon();
+      btn.addEventListener('click',()=>{const cur=root.getAttribute('data-theme');const next=cur==='dark'?'light':'dark';root.setAttribute('data-theme',next);localStorage.setItem('theme',next);updateIcon();});
+      function updateIcon(){btn.textContent=root.getAttribute('data-theme')==='dark'?'☀️':'🌙';btn.setAttribute('aria-label',root.getAttribute('data-theme')==='dark'?'Switch to light mode':'Switch to dark mode');}
+    })();
+  </script>
 </body>
 </html>
