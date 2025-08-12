@@ -4,21 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experience | Junwoo Jung</title>
-  
-    <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VX1RXT8CB8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-    gtag('config', 'G-VX1RXT8CB8');
-  </script>
 
-  <!-- Fonts & icons -->
+  <!-- Fonts & favicon -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
 
   <style>
-    /* ---------------- CSS RESET ---------------- */
+    /* ---------------- RESET ---------------- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -32,13 +24,16 @@
       --text-muted: #555;
       --accent: #6366f1;
       --shadow: rgba(0,0,0,.08);
+      --border: rgba(0,0,0,.10);
     }
     [data-theme="dark"] {
       --bg: #101112;
       --card-bg: #1c1d20cc;
       --text: #e5e7eb;
       --text-muted: #a1a1aa;
-      --shadow: rgba(0,0,0,.4);
+      --accent: #8b8df9;
+      --shadow: rgba(0,0,0,.40);
+      --border: rgba(255,255,255,.12);
     }
 
     body {
@@ -49,15 +44,15 @@
       display: flex;
       flex-direction: column;
       transition: background .3s, color .3s;
+      line-height: 1.6;
     }
 
-    /* ------------ NAV ------------- */
+    /* ---------------- NAV ---------------- */
     nav {
       position: sticky; top: 0; z-index: 20;
       backdrop-filter: blur(8px);
       background: var(--card-bg);
-      box-shadow: 0 1px 3px var(--shadow);
-      transition: background .3s;
+      border-bottom: 1px solid var(--border);
     }
     .nav-container {
       max-width: 1100px; margin: 0 auto;
@@ -67,10 +62,9 @@
     .nav-left { font-weight: 600; }
     .nav-links { display: flex; gap: 1rem; font-weight: 500; }
     .nav-links a:hover { color: var(--accent); }
-    .theme-toggle { font-size: 1.25rem; line-height:1; padding:.25rem; transition: transform .2s; }
-    .theme-toggle:hover { transform: rotate(20deg); }
+    .theme-toggle { font-size: 1.2rem; line-height:1; padding:.25rem; }
 
-    /* ------------ MAIN LAYOUT ------------- */
+    /* ---------------- MAIN ---------------- */
     main {
       flex: 1;
       display: flex;
@@ -79,17 +73,18 @@
       padding: 2rem 1rem 3rem;
     }
     h1 { font-size: 2rem; font-weight: 600; margin-bottom: .25rem; text-align: center; }
-    h2 { font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; }
+    h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
 
     .section-box {
       width: 100%;
-      max-width: 900px;
+      max-width: 880px;              /* a bit shorter */
       background: var(--card-bg);
       padding: 2rem 1.5rem;
       border-radius: 20px;
       box-shadow: 0 6px 16px var(--shadow);
       margin-bottom: 2rem;
       transition: background .3s, box-shadow .3s;
+      border: 1px solid var(--border);
     }
 
     .section-box ul { list-style: none; }
@@ -97,20 +92,34 @@
     .education-item,
     .experience-item {
       display: grid;
-      grid-template-columns: 80px 1fr auto;
-      gap: 12px;
+      grid-template-columns: 56px 1fr auto;  /* tighter logo column */
+      gap: 10px 14px;
       align-items: start;
-      padding: 1rem 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--shadow);
     }
     .education-item:last-child,
     .experience-item:last-child { border-bottom: none; }
 
-    .institution-logo { width: 80px; height: 80px; object-fit: contain; }
+    .institution-logo { width: 56px; height: 56px; object-fit: contain; }
     .date { font-weight: 600; color: var(--text-muted); white-space: nowrap; text-align: right; }
-    .description { grid-column: 2 / -1; margin-top: .25rem; line-height: 1.55; }
+    .description { grid-column: 2 / -1; margin-top: .25rem; }
 
-    /* ------------ FOOTER ------------- */
+    /* ---------- Keyword chips (auto-built from .description) ---------- */
+    .tags{
+      grid-column: 2 / -1;
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;
+    }
+    .tag{
+      font-size: .86rem; line-height: 1.2;
+      padding: .22rem .5rem; border-radius: 999px;
+      border: 1px solid var(--shadow);
+      background: color-mix(in srgb, var(--text) 4%, transparent);
+      color: var(--text-muted);
+    }
+    .tag:hover{ color: var(--text); text-decoration: none; }
+
+    /* ---------------- FOOTER ---------------- */
     footer {
       font-size: .85rem;
       text-align: center;
@@ -118,21 +127,50 @@
       color: var(--text-muted);
       transition: color .3s;
     }
-  </style>
+  
+/* === Uniform top nav (applied on all pages) === */
+nav{
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(8px);
+  background: var(--card-bg, var(--card));
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.08));
+}
+.nav-container{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.8rem 1rem;
+}
+.nav-left{ font-weight:600; }
+.nav-links{ display:flex; gap:1rem; font-weight:500; }
+.nav-link{ opacity:.95; position:relative; }
+.nav-link:hover{ color:var(--accent); }
+.theme-toggle{ font-size:1.2rem; line-height:1; padding:.25rem; }
+
+/* Active state that does not shift layout */
+.nav-link.active,
+.nav-link[aria-current="page"]{ color:var(--accent); }
+.nav-link.active::after,
+.nav-link[aria-current="page"]::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background:var(--accent); border-radius:2px;
+}
+
+</style>
 </head>
 <body>
   <!-- ===== NAVBAR ===== -->
   <nav>
-    <div class="nav-container">
-      <span class="nav-left">Junwoo Jung</span>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="QIstudygroup.html">Study Group</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      </div>
+  <div class="nav-container">
+    <span class="nav-left">Junwoo Jung</span>
+    <div class="nav-links">
+      <a href="index.html"        data-page="index.html"        class="nav-link">Home</a>
+      <a href="experience.html"   data-page="experience.html"   class="nav-link">Experience</a>
+      <a href="projects.html"     data-page="projects.html"     class="nav-link">Projects</a>
+      <a href="QIstudygroup.html" data-page="QIstudygroup.html" class="nav-link">Study Group</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- ===== HEADER ===== -->
   <main>
@@ -140,7 +178,7 @@
       <h1>Experience</h1>
     </header>
 
-    <!-- Education -------------------------------------- -->
+    <!-- Education -->
     <section class="section-box">
       <h2>Education</h2>
 
@@ -153,81 +191,85 @@
       </div>
 
       <div class="education-item">
-        <img src="KSA-logo.webp" alt="KSA" class="institution-logo" />
+        <img src="KSA-logo.webp" alt="Korea Science Academy of KAIST" class="institution-logo" />
         <div>
-          <strong>Korea Science Academy of KAIST</strong><br />KAIST‑affiliated High School
+          <strong>Korea Science Academy of KAIST</strong><br />KAIST-affiliated High School
         </div>
         <div class="date">2020 – 2022</div>
       </div>
     </section>
 
-    <!-- Research Experience ---------------------------- -->
+    <!-- Research Experience -->
     <section class="section-box">
       <h2>Research Experience</h2>
       <ul>
         <li class="experience-item">
           <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
           <div>
-            <strong>KAIST</strong><br />Undergraduate Intern (PI: G.Y. Cho)
+            <strong>KAIST</strong><br />Undergraduate Intern (PI: G.Y. Cho)
           </div>
-          <div class="date">Feb 2025 – Present</div>
-          <p class="description">Investigation of the error term of chiral central charge caused by deviations from a strict entanglement‑area law.</p>
+          <div class="date">Feb 2025 – Present</div>
+          <p class="description">Chiral Central Charge, Strict Entanglement Law, Many-body Physics, Quantum Information</p>
         </li>
 
         <li class="experience-item">
-          <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
+          <img src="NTU-logo.png" alt="Nanyang Technological University" class="institution-logo" />
           <div>
-            <strong>Nanyang Technological University</strong><br />Undergraduate Intern (PI: N. Ng)
+            <strong>Nanyang Technological University</strong><br />Undergraduate Intern (PI: N. Ng)
           </div>
-          <div class="date">Aug 2024 – Jan 2025</div>
-          <p class="description">(Ongoing) Exploring the correspondence between Gibbs‑preserving covariant channels and thermal operations.</p>
-        </li>
-
-        <li class="experience-item">
-          <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
-          <div>
-            <strong>KAIST</strong><br />Undergraduate Intern (PI: J.Y. Choi)
-          </div>
-          <div class="date">Sep 2023 – Feb 2024</div>
-          <p class="description">Learned optical experimental techniques and built a Python‑based GUI for a temperature‑control system.</p>
+          <div class="date">Aug 2024 – Jan 2025</div>
+          <p class="description">Quantum Thermodynamics, Thermal Operations, Gibbs-Preserving Covariant Channels</p>
         </li>
 
         <li class="experience-item">
           <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
           <div>
-            <strong>KAIST</strong><br />Undergraduate Intern (PI: J.W. Ahn)
+            <strong>KAIST</strong><br />Undergraduate Intern (PI: J.Y. Choi)
           </div>
-          <div class="date">Jun 2023 – Sep 2023</div>
-          <p class="description"><a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">Developed a Rydberg‑atom‑graph approach for solving QUBO problems.</a></p>
+          <div class="date">Sep 2023 – Feb 2024</div>
+          <p class="description">Python-based GUI, Optical Experiment Setup, Simulation</p>
+        </li>
+
+        <li class="experience-item">
+          <img src="kaist-logo.png" alt="KAIST" class="institution-logo" />
+          <div>
+            <strong>KAIST</strong><br />Undergraduate Intern (PI: J.W. Ahn)
+          </div>
+          <div class="date">Jun 2023 – Sep 2023</div>
+          <p class="description">
+            <a href="https://doi.org/10.1002/qute.202300398" target="_blank" rel="noopener noreferrer">
+              QUBO, Rydberg-atom Quantum Computing
+            </a>
+          </p>
         </li>
       </ul>
     </section>
 
-    <!-- Exchange Programmes ---------------------------- -->
+    <!-- Exchange Programmes -->
     <section class="section-box">
       <h2>Exchange Programmes</h2>
       <ul>
         <li class="experience-item">
-          <img src="DTU-logo.png" alt="DTU" class="institution-logo" />
+          <img src="DTU-logo.png" alt="Technical University of Denmark" class="institution-logo" />
           <div>
-            <strong>Technical University of Denmark</strong><br />Short‑term Exchange
+            <strong>Technical University of Denmark</strong><br />Short-term Exchange
           </div>
-          <div class="date">Summer 2025</div>
-          <p class="description">Earned three credits.</p>
+          <div class="date">Summer 2025</div>
+          <p class="description">3 Credits</p>
         </li>
 
         <li class="experience-item">
-          <img src="NTU-logo.png" alt="NTU" class="institution-logo" />
+          <img src="NTU-logo.png" alt="Nanyang Technological University" class="institution-logo" />
           <div>
             <strong>Nanyang Technological University</strong><br />Exchange Programme
           </div>
-          <div class="date">Autumn 2024</div>
-          <p class="description">Research internship and completed 9 credits.</p>
+          <div class="date">Autumn 2024</div>
+          <p class="description">Research Internship, 9 Credits</p>
         </li>
       </ul>
     </section>
 
-    <!-- QI Study Group --------------------------------- -->
+    <!-- QI Study Group -->
     <section class="section-box">
       <h2>Quantum Information Study Group</h2>
       <ul>
@@ -236,46 +278,80 @@
           <div>
             <strong>Quantum Information Study Group</strong><br />Founder
           </div>
-          <div class="date">Apr 2024 – Present</div>
-          <p class="description">Organised a 15‑member joint KAIST/SNU group to discuss quantum‑information topics weekly.</p>
+          <div class="date">Apr 2024 – Present</div>
+          <p class="description">Weekly Seminar, KAIST/SNU, 15 Members</p>
         </li>
       </ul>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ---------------- FOOTER ---------------- -->
   <footer>
-    &copy; 2025 Junwoo Jung &bull; Built with vanilla&nbsp;HTML/CSS &bull; Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+    © 2025 Junwoo Jung • Built with vanilla&nbsp;HTML/CSS • Hosted on
+    <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
   </footer>
 
-  <!-- ===== THEME TOGGLE SCRIPT ===== -->
+  <!-- ---------------- SCRIPTS ---------------- -->
   <script>
+    // Theme toggle (consistent with other pages)
     (function() {
       const root = document.documentElement;
       const btn = document.getElementById('theme-toggle');
       const stored = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      if (stored) {
-        root.setAttribute('data-theme', stored);
-      } else if (prefersDark) {
-        root.setAttribute('data-theme', 'dark');
-      }
-      updateIcon();
+      if (stored) root.setAttribute('data-theme', stored);
+      else if (prefersDark) root.setAttribute('data-theme', 'dark');
+
+      function setIcon(){ btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙'; }
+      setIcon();
 
       btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
-        updateIcon();
+        setIcon();
       });
-
-      function updateIcon() {
-        btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
-        btn.setAttribute('aria-label', root.getAttribute('data-theme') === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
     })();
   </script>
+
+  <script>
+    // Turn comma/pipe/• separated ".description" text into chips
+    (function(){
+      document.querySelectorAll('.description').forEach(p => {
+        const href = p.querySelector('a')?.getAttribute('href') || null;
+        const raw  = (p.textContent || '').trim();
+        const tokens = raw.split(/[,\u2022|]/).map(t => t.trim()).filter(Boolean);
+        if (tokens.length < 2) return; // keep normal sentences as-is
+
+        const wrap = document.createElement('div');
+        wrap.className = 'tags';
+
+        tokens.forEach(t => {
+          const el = document.createElement(href ? 'a' : 'span');
+          el.className = 'tag';
+          if (href) { el.href = href; el.target = '_blank'; el.rel = 'noopener noreferrer'; }
+          el.textContent = t;
+          wrap.appendChild(el);
+        });
+
+        p.replaceWith(wrap);
+      });
+    })();
+  </script>
+
+<script>
+  // Highlight the current page link across all pages
+  (function(){
+    var links = document.querySelectorAll('.nav-links .nav-link');
+    var file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    links.forEach(function(a){
+      var page = (a.dataset.page || '').toLowerCase();
+      if(page === file){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
+</script>
+
 </body>
 </html>
